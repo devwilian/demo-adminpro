@@ -1,7 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ClientComponent } from './client.component';
-import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import { AgeneralesComponent } from './agenerales/agenerales.component';
 import { FormularioComponent } from './formulario/formulario.component';
 
@@ -10,8 +9,6 @@ const routes: Routes = [
         path:'',
         component:ClientComponent,
         children:[
-            {path:'',component:BienvenidoComponent},
-            {path:'agenerales',component:AgeneralesComponent},
             {path:'formulario',component:FormularioComponent},
         ]
     }

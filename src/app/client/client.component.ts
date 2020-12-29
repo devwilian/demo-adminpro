@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class ClientComponent implements OnInit {
-
+  verBienvenido=true;
+  verAGenerales=false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
