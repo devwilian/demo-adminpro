@@ -7,6 +7,7 @@ import { AgeneralesComponent } from './agenerales/agenerales.component';
 import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import { ClientComponent } from './client.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,8 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientModule { }
