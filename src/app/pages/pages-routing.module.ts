@@ -8,23 +8,39 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
-const pagesRoutes:Routes=[
+const pagesRoutes: Routes = [
   {
-    path:'admin',
-    component:PagesComponent,
-    children:[
-      {path:'',component:DashboardComponent,data:{titulo:'Admin'}},
-      {path:'progress',component:ProgressComponent,data:{titulo:'Progress bar'}},
-      {path:'graficas1',component:Graficas1Component,data:{titulo:'Admin'}},
-      {path:'account-settings',component:AccountSettingsComponent,data:{titulo:'Configuracion de temas'}},
-      {path:'promesas',component:PromesasComponent,data:{titulo:'Promesas'}},
-      {path:'rxjs',component:RxjsComponent,data:{titulo:'RxJs'}}
-    ]
-  }
+    path: 'admin',
+    component: PagesComponent,
+    children: [
+      { path: '', component: DashboardComponent, data: { titulo: 'Admin' } },
+      {
+        path: 'progress',
+        component: ProgressComponent,
+        data: { titulo: 'Progress bar' },
+      },
+      {
+        path: 'graficas1',
+        component: Graficas1Component,
+        data: { titulo: 'Admin' },
+      },
+      {
+        path: 'account-settings',
+        component: AccountSettingsComponent,
+        data: { titulo: 'Configuracion de temas' },
+      },
+      {
+        path: 'promesas',
+        component: PromesasComponent,
+        data: { titulo: 'Promesas' },
+      },
+      { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' } },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(pagesRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PagesRoutingModule { }
+export class PagesRoutingModule {}

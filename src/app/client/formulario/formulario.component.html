@@ -1,17 +1,23 @@
 <!-- ============================================================== -->
 <!-- Start Page Content -->
 <!-- ============================================================== -->
-<div class="container">
+<div class="container form-material">
     <div class="center">
-        <h2>FORMULARIO DE REGISTRO DE RECLAMOS</h2>
+        <h1>FORMULARIO DE REGISTRO DE RECLAMOS</h1>
     </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body floating-labels form-material">
-                        <h4 class="card-title m-t-40">
-                        Tipo de documento<br/>
-                        </h4>
+                <div class="card-body floating-labels">
+                    <!-- Formulario del Reclamante -->
+                    <form action="" 
+                        autocomplete="off"    
+                        [formGroup]="registerFrm"
+                        (ngSubmit)="guardarReclamos()">
+                        <div>
+                            <h3>IDENTIFICACION DEL CONSUMIDOR</h3>
+                        </div>
+                        <label for="nrodocumento">Tipo documento</label>
                         <div class="d-flex justify-content-around">
                             <input name="tipodoc" type="radio" id="tipodoc_1" class="radio-col-deep-purple" checked />
                             <label for="tipodoc_1">DNI</label>
@@ -22,11 +28,133 @@
                             <input name="tipodoc" type="radio" id="tipodoc_4" class="radio-col-deep-purple" />
                             <label for="tipodoc_4">Carnet de extranjeria</label>
                         </div> 
-                        <div class="form-group m-b-40">
-                            <input type="text" class="form-control form-control-line" id="nrodocumento">
+                        <div class="form-group mb-1">
+                            <input type="text" class="form-control form-control-line" id="nrodocumento" formControlName="nrodocumento">
                             <span class="bar"></span>
                             <label for="nrodocumento">Numero Documento</label>
                         </div>
+                        <div class="form-group mb-1">
+                            <input type="text" class="form-control form-control-line" id="razonsocial" formControlName="razonsocial">
+                            <span class="bar"></span>
+                            <label for="razonsocial">Razon social</label>
+                        </div>
+                        <div class="row">
+                            <div class="form-group mb-1 col-6">
+                                <input type="text" class="form-control form-control-line" id="apellidos" formControlName="apellidos">
+                                <span class="bar"></span>
+                                <label for="apellidos">Apellidos</label>
+                            </div>
+                            <div class="form-group mb-1 col-6">
+                                <input type="text" class="form-control form-control-line" id="nombres" formControlName="nombres">
+                                <span class="bar"></span>
+                                <label for="nombres">Nombres</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group mb-1 col-6">
+                                <input type="text" class="form-control form-control-line" id="telefono" formControlName="telefono">
+                                <span class="bar"></span>
+                                <label for="telefono">Numero telefonico</label>
+                            </div>
+                            <div class="form-group mb-1 col-6">
+                                <input type="text" class="form-control form-control-line" id="email" formControlName="email">
+                                <span class="bar"></span>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-1">
+                            <input type="text" class="form-control form-control-line" id="direccion" formControlName="direccion">
+                            <span class="bar"></span>
+                            <label for="direccion">Direccion</label>
+                        </div>
+                        <div>
+                            <h3>IDENTIFICACION DEL BIEN CONTRATADO</h3>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <input name="tipobien" type="radio" id="tipobien_1" class="radio-col-deep-purple" checked />
+                            <label for="tipobien_1">PRODUCTO</label>
+                            <input name="tipobien" type="radio" id="tipobien_2" class="radio-col-deep-purple" />
+                            <label for="tipobien_2">SERVICIO</label>
+                        </div>
+                        <div class="form-group mb-1">
+                            <input type="text" class="form-control form-control-line" id="montobien" formControlName="montobien">
+                            <span class="bar"></span>
+                            <label for="montobien">Monto del bien contratado</label>
+                        </div>
+                        <div>
+                            <h3>DETALLES DEL RECLAMO O QUEJA</h3>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <input name="reclamoqueja" type="radio" id="reclamoqueja_1" class="radio-col-deep-purple" checked />
+                            <label for="reclamoqueja_1">RECLAMO</label>
+                            <input name="reclamoqueja" type="radio" id="reclamoqueja_2" class="radio-col-deep-purple" />
+                            <label for="reclamoqueja_2">QUEJA</label>
+                        </div>
+                        <label for="nrodocumento">Motivo de reclamo</label>
+                        <div class="row demo-checkbox">
+                            <div class="col-6">
+                                <input type="checkbox" id="md_checkbox_21" class="filled-in chk-col-deep-purple" checked />
+                                <label for="md_checkbox_21">Problema al pago del servicio</label><br>
+                                <input type="checkbox" id="md_checkbox_22" class="filled-in chk-col-deep-purple" checked />
+                                <label for="md_checkbox_22">Impedimento injustificada de ingreso a la empresa</label><br>
+                                <input type="checkbox" id="md_checkbox_23" class="filled-in chk-col-deep-purple" checked />
+                                <label for="md_checkbox_23">Trato descortes</label><br>
+                                <input type="checkbox" id="md_checkbox_24" class="filled-in chk-col-deep-purple" checked />
+                                <label for="md_checkbox_24">Negativa a indentificarse</label><br>
+                            </div>
+                            <div class="col-6">
+                                <input type="checkbox" id="md_checkbox_25" class="filled-in chk-col-deep-purple" checked />
+                                <label for="md_checkbox_25">Informacion insuficiente y/o erronea</label><br>
+                                <input type="checkbox" id="md_checkbox_26" class="filled-in chk-col-deep-purple" checked />
+                                <label for="md_checkbox_26">Demora en la Atencion</label><br>
+                                <input type="checkbox" id="md_checkbox_27" class="filled-in chk-col-deep-purple" checked />
+                                <label for="md_checkbox_27">Otro Motivo</label><br>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>DETALLE DE RECLAMO O QUEJA</label>
+                            <textarea class="form-control" rows="5" formControlName="detallesreclamo"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <h4 class="card-title">Documentos probatorios</h4>
+                            <h6 class="card-subtitle">coloque los archvivos que considere como medio probatorio</h6>
+                            <fieldset class="form-group">
+                                <label class="custom-file d-block">
+                                    <input type="file" id="file" multiple formControlName="documentos" (change)="onFileChange($event)" class="custom-file-input">
+                                    <span class="custom-file-control"></span>
+                                </label>
+                            </fieldset>
+                            <div class="form-group">
+                                <div *ngFor="let i of docProbatorios">
+                                    <label>{{i.name}}</label><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>PEDIDO A SU RECLAMO O QUEJA</label>
+                            <textarea class="form-control" rows="5" formControlName="pedido"></textarea>
+                        </div>
+                        <div class="demo-checkbox">
+                            <input type="checkbox" id="terminos" class="filled-in chk-col-deep-purple" formControlName="confirmarterminos"/>
+                            <label for="terminos">Confirmo que todos los datos ingresados están correctas y  
+                                <a href="#">Acepto los terminos y condiciones.</a></label><br>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i>
+                                <span class="ml-2">Hola Mundo</span>
+                            </div>
+                            <div>
+                                <i class="fa fa-check-circle fa-2x" aria-hidden="true"></i>
+                                <span class="ml-2">Hola Mundo</span>
+                            </div>
+                        </div>
+                        <div class="form-group center">
+                            <button type="button" class="btn btn-rounded btn-lg btn-danger waves-effect waves-light m-r-10">SALIR</button>
+                            <button type="submit" class="btn btn-rounded btn-lg btn-success waves-effect waves-light m-r-10">ENVIAR</button>
+                            <button type="button" class="btn btn-rounded btn-lg btn-primary waves-effect waves-light m-r-10">LIMPIAR</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
